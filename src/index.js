@@ -12,16 +12,18 @@ module.exports = function toReadable (number) {
          } else if(str[0] !== '1' && str[1] !== '0') {
             return `${twoItem2(str[0])} ${oneItem(str[1])}`
          }
-     } else if (n === 3) {
+     } else if (n === 3) {        
         if(str[1] === '0' && str[2] === '0') {
             return `${oneItem(str[0])} hundred`;
+         } else if(str[1] === '0' && str[2] !== '0') {
+            return `${oneItem(str[0])} hundred ${oneItem(str[2])}`
          } else if(str[1] === '1') {
              return `${oneItem(str[0])} hundred ${twoItem1(str[2])}`
          } else if(str[1] !== '1' && str[2] === '0') {
             return `${oneItem(str[0])} hundred ${twoItem2(str[1])}`
          } else if(str[1] !== '1' && str[2] !== '0') {
-            return `${oneItem(str[0])} hundred ${twoItem2(str[1])} ${oneItem(str[1])}`
-         }
+            return `${oneItem(str[0])} hundred ${twoItem2(str[1])} ${oneItem(str[2])}`
+         } 
      }       
   }  
  }
@@ -83,7 +85,7 @@ function twoItem2 (item) {
         break;
         case '3': return 'thirty';
         break;
-        case '4': return 'fourty';
+        case '4': return 'forty';
         break;
         case '5': return 'fifty';
         break;
@@ -98,4 +100,4 @@ function twoItem2 (item) {
     }
 }
 
-console.log(toReadable(6));
+
